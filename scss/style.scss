@@ -103,14 +103,7 @@ main {
 				top: 40px;
 				left: 40px;
 				font-size: 1rem;
-				opacity: 0;
-
-				&.on {
-					opacity: 1;
-				}
-
-				span {
-				}
+				opacity: 0.8;
 			}
 		}
 	}
