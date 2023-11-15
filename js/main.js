@@ -17,6 +17,7 @@ setInterval(() => {
 }, 1000);
 
 */
+//------------------------------------------------
 
 setInterval(() => {
 	em.innerText = new Date().getHours() < 12 ? 'am' : 'pm';
@@ -33,6 +34,8 @@ function getTime() {
 	let min = now.getMinutes();
 	let sec = now.getSeconds();
 
+	//현재시간값이 13이상이되면 12를 뺀 값을 hr로 리턴
+	hr = hr > 13 ? hr - 12 : hr;
 	return [hr, min, sec];
 }
 
