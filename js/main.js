@@ -49,8 +49,19 @@ function setTime(num, index) {
 //시간에 테마 변경 함수
 function changeTheme() {
 	const hr = new Date().getHours();
-	main.className = '';
+	main.className = ''; //클래스 비우기
 
+	const data = [
+		{ cond: hr >= 5 && hr < 12, name: 'morning' },
+		{ cond: hr >= 12 && hr < 18, name: 'afternoon' },
+		{ cond: hr >= 18 && hr < 21, name: 'evening' },
+		{ cond: hr >= 21 || hr < 5, name: 'night' },
+	];
+	data.forEach((el) => {
+		if (el.cond) main.classList.add(el.name);
+	});
+
+	/*
 	if (hr >= 5 && hr < 12) {
 		main.classList.add('morning');
 	}
@@ -63,4 +74,5 @@ function changeTheme() {
 	if (hr >= 21 || hr < 5) {
 		main.classList.add('night');
 	}
+  */
 }
