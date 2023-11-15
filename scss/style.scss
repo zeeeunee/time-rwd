@@ -1,2 +1,80 @@
 @import 'reset';
-@import 'variable';
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+main {
+	width: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-image: url(../img/bg_morning.jpg);
+	overflow: hidden;
+
+	article {
+		width: 35vw;
+		position: absolute;
+		top: 60vh;
+		left: 5vw;
+
+		p {
+			font: 4vmax/1 'orbitron';
+			color: #fff;
+			margin-bottom: 20px;
+
+			strong {
+				font-weight: normal;
+				opacity: 0.7;
+			}
+		}
+
+		em {
+			font: 1rem/1.2 'arial';
+			color: #fff;
+			padding-left: 5px;
+			opacity: 0.6;
+		}
+	}
+
+	figure {
+		width: 800px;
+		height: 400px;
+		position: absolute;
+		right: -5vw;
+		top: 50%;
+		margin-top: -100px;
+		background-image: url(../img/phone_morning.png);
+		background-position: right top;
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		.screen {
+			width: 271px;
+			height: 153px;
+			position: absolute;
+			top: 50px;
+			left: 260px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			font-family: 'orbitron';
+			font-size: 2rem;
+			gap: 5px;
+
+			em {
+				position: absolute;
+				top: 40px;
+				left: 40px;
+				font-size: 1rem;
+				opacity: 0;
+
+				&.on {
+					opacity: 1;
+				}
+
+				span {
+				}
+			}
+		}
+	}
+}
