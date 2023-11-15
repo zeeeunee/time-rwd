@@ -67,6 +67,7 @@ main {
 		em {
 			font: 0.8rem/1.2 'arial';
 			color: #fff;
+			font-weight: normal;
 			padding-left: 5px;
 			opacity: 0.6;
 		}
@@ -111,5 +112,47 @@ main {
 				text-align: center;
 			}
 		}
+	}
+}
+
+//Theme Style
+main.morning {
+	background-image: url(../img/bg_morning.jpg);
+
+	figure {
+		background-image: url(../img/phone_morning.png);
+	}
+}
+
+main.afternoon {
+	background-image: url(../img/bg_afternoon.jpg);
+
+	figure {
+		color: #555;
+		background-image: url(../img/phone_afternoon.png);
+
+		.screen {
+			color: #555;
+		}
+	}
+}
+
+main.evening {
+	background-image: url(../img/bg_evening.jpg);
+
+	figure {
+		background-image: url(../img/phone_evening.png);
+	}
+}
+
+main.night {
+	background-image: url(../img/bg_night.jpg);
+
+	nav {
+		color: #fff;
+	}
+
+	figure {
+		background-image: url(../img/phone_night.png);
 	}
 }
