@@ -58,6 +58,7 @@ function setTime(num, index) {
 //시간에 테마 변경 함수
 function changeTheme(info) {
 	//전역 data를 바로 활용하는 것이 아닌 info라는 파라미터를 통해서 전달받도록 처리
+	//자주 바뀔만한 값을 상단 전역변수로 뺀뒤 해당 값을 필요로하는 함수에 인수로 전달(데이터추적을 편하게 하기 위함)
 	const hr = new Date().getHours();
 	main.className = ''; //클래스 비우기
 
