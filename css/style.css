@@ -118,5 +118,9 @@ main figure .screen em {
   font-size: 1rem;
   opacity: 0.8;
 }
+main figure .screen span {
+  width: 50px;
+  text-align: center;
+}
 
 /*# sourceMappingURL=style.css.map */
