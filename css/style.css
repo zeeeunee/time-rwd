@@ -233,7 +233,7 @@ main.night figure {
     color: #555;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 440px) {
   main nav {
     padding: 5vh 10vw;
   }
@@ -245,7 +245,7 @@ main.night figure {
   }
   main figure {
     transform: scale(0.5);
-    right: -15vw;
+    right: -10vw;
   }
 }
 
