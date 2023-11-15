@@ -11,6 +11,39 @@ main {
 	overflow: hidden;
 	position: relative;
 
+	.cl1 {
+		position: absolute;
+		top: -100px;
+		left: 0;
+		opacity: 1;
+		animation: move 40s linear 0s infinite;
+	}
+
+	.cl2 {
+		position: absolute;
+		top: -50px;
+		left: 0;
+		opacity: 1;
+		animation: move 40s linear 0s infinite;
+	}
+
+	@keyframes move {
+		0% {
+			opacity: 0;
+			left: -50%;
+		}
+		50% {
+			opacity: 0.5;
+		}
+		95% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 0;
+			left: 80%;
+		}
+	}
+
 	nav {
 		width: 40%;
 		padding: 5vh 5vw;
@@ -99,6 +132,25 @@ main {
 			font-family: 'orbitron';
 			font-size: 2.3rem;
 			gap: 10px;
+			overflow: hidden;
+
+			.cl1 {
+				width: 340px;
+				position: absolute;
+				top: 20px;
+				left: 0;
+				opacity: 0;
+				animation: move 40s linear 0s infinite;
+			}
+
+			.cl2 {
+				width: 340px;
+				position: absolute;
+				top: 20px;
+				left: 0;
+				opacity: 0;
+				animation: move 40s linear 0s infinite;
+			}
 
 			em {
 				position: absolute;
