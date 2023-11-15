@@ -9,6 +9,7 @@ main {
 	background-size: cover;
 	background-image: url(../img/bg_morning.jpg);
 	overflow: hidden;
+	position: relative;
 
 	nav {
 		width: 40%;
@@ -75,7 +76,7 @@ main {
 
 	figure {
 		width: 800px;
-		height: 400px;
+		height: 500px;
 		position: absolute;
 		right: -5vw;
 		top: 50%;
@@ -86,23 +87,23 @@ main {
 		background-size: contain;
 
 		.screen {
-			width: 271px;
-			height: 153px;
+			width: 337px;
+			height: 190px;
 			position: absolute;
-			top: 50px;
-			left: 260px;
+			top: 63px;
+			left: 126px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			color: #fff;
 			font-family: 'orbitron';
-			font-size: 2rem;
+			font-size: 2.3rem;
 			gap: 5px;
 
 			em {
 				position: absolute;
-				top: 40px;
-				left: 40px;
+				top: 50px;
+				left: 60px;
 				font-size: 1rem;
 				opacity: 0.8;
 			}

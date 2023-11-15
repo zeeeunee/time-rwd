@@ -1,3 +1,4 @@
+const main = document.querySelector('main');
 const screen = document.querySelector('.screen');
 const em = screen.querySelector('em');
 const numbers = screen.querySelectorAll('span');
@@ -20,6 +21,7 @@ setInterval(() => {
 //------------------------------------------------
 
 setInterval(() => {
+	changeTheme();
 	em.innerText = new Date().getHours() < 12 ? 'am' : 'pm';
 	//getTime함수가 [시간,분,초]반환
 	//반환된 배열값을 그대로 반복돌면서 setTime함수에 인수로 전달
@@ -42,4 +44,23 @@ function getTime() {
 //반환된 시간값을 인수로 받아서 DOM에 세팅하는 함수
 function setTime(num, index) {
 	numbers[index].innerText = num < 10 ? '0' + num : num;
+}
+
+//시간에 테마 변경 함수
+function changeTheme() {
+	const hr = new Date().getHours();
+	main.className = '';
+
+	if (hr >= 5 && hr < 12) {
+		main.classList.add('morning');
+	}
+	if (hr >= 12 && hr < 18) {
+		main.classList.add('afternoon');
+	}
+	if (hr >= 18 && hr < 21) {
+		main.classList.add('evening');
+	}
+	if (hr >= 21 || hr < 5) {
+		main.classList.add('night');
+	}
 }
