@@ -157,3 +157,63 @@ main.night {
 		background-image: url(../img/phone_night.png);
 	}
 }
+
+@media screen and (max-width: 1100px) {
+	main {
+		figure {
+			transform-origin: right center;
+			transform: scale(0.9);
+		}
+	}
+}
+
+@media screen and (max-width: 900px) {
+	main {
+		nav {
+			width: 100%;
+		}
+
+		article {
+			width: 100%;
+			top: 20vh;
+			left: 0;
+			padding: 10vh;
+		}
+
+		figure {
+			top: 60%;
+		}
+	}
+
+	main.afternoon {
+		article {
+			p {
+				color: #555;
+			}
+			em {
+				color: #555;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 400px) {
+	main {
+		nav {
+			padding: 5vh 10vw;
+		}
+
+		.auto {
+			left: 10vw;
+		}
+
+		article {
+			top: 10vh;
+		}
+
+		figure {
+			transform: scale(0.5);
+			right: -15vw;
+		}
+	}
+}
