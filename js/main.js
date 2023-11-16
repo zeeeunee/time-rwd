@@ -3,6 +3,7 @@ const screen = document.querySelector('.screen');
 const em = screen.querySelector('em');
 const numbers = screen.querySelectorAll('span');
 const btns = document.querySelectorAll('nav span');
+const btnAuto = document.querySelector('.auto');
 /*
 setInterval(() => {
 	const now = new Date();
@@ -34,8 +35,10 @@ setInterval(setWatch, 1000);
 
 //changeTheme의 경우는 data는 인수를 전달해야 되기때문에 ()를 붙여야함
 //()를 붙이는 순간에 정의형태가 아닌 호출형태로 변경되므로 다시 익명함수로 호출문을 wrapping해서 정의형태로 변경
+//순서1: 로딩되자마자 1초 간격으로 changeTheme 반복실행
 let timer = setInterval(() => changeTheme(data), 1000);
 
+//순서2: 메뉴버튼 클릭시 강제로 clearInterval(timer)로 changeTheme반복중지
 btns.forEach((btn) => {
 	//각 버튼 클릭시
 	btn.addEventListener('click', (e) => {
@@ -50,6 +53,14 @@ btns.forEach((btn) => {
 		//클릭한 버튼의 글자를 가져와서 소문자로 변경한다음 메인요소의 클래스명으로 지정
 		main.classList.add(e.currentTarget.innerText.toLowerCase()); //to UpperCase(); 대문자변경
 	});
+});
+
+//auto버튼 클릭시 다시 반복 테마변경기능 실행하면서
+//모든 버튼 활성화
+//순서3:auto버튼 클릭시 다시 1초간격으로 changeTheme반복실행
+btnAuto.addEventListener('click', () => {
+	timer = setInterval(() => changeTheme(data), 1000);
+	btns.forEach((btn) => btn.classList.remove('on'));
 });
 
 function setWatch() {
