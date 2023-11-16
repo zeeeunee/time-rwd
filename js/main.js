@@ -28,21 +28,19 @@ const data = [
 	{ cond: new Date().getHours() >= 21 || new Date().getHours() < 5, name: 'night' },
 ];
 
-let timer = setInterval(() => {
-	//data전역변수를 인수로 받아서 호출처리
-	changeTheme(data);
-	em.innerText = new Date().getHours() < 12 ? 'am' : 'pm';
-	//getTime함수가 [시간,분,초]반환
-	//반환된 배열값을 그대로 반복돌면서 setTime함수에 인수로 전달
-	//setTime함수는 반복을 돌면서 시간,분,초에 한자리수 일때 앞에 0을 붙여주는 공통로직 반복실행
-	getTime().forEach((num, idx) => setTime(num, idx));
-}, 1000);
+//특정함수에 콜백함수를 전달할때 함수호출구문이 아닌 정의문형태로 전달
+//setWatch처럼 함수명만 넣으면 정의형태이기 때문에 바로 등록가능
+setInterval(setWatch, 1000);
+
+//changeTheme의 경우는 data는 인수를 전달해야 되기때문에 ()를 붙여야함
+//()를 붙이는 순간에 정의형태가 아닌 호출형태로 변경되므로 다시 익명함수로 호출문을 wrapping해서 정의형태로 변경
+let timer = setInterval(() => changeTheme(data), 1000);
 
 btns.forEach((btn) => {
 	//각 버튼 클릭시
 	btn.addEventListener('click', (e) => {
 		//클릭한  버튼만 활성화
-		btn.forEach((btn) => btn.classList.remove('on'));
+		btns.forEach((btn) => btn.classList.remove('on'));
 		e.currentTarget.classList.add('on');
 
 		//기존 자동롤링기능끊어줌
@@ -53,6 +51,11 @@ btns.forEach((btn) => {
 		main.classList.add(e.currentTarget.innerText.toLowerCase()); //to UpperCase(); 대문자변경
 	});
 });
+
+function setWatch() {
+	em.innerText = new Date().getHours() < 12 ? 'am' : 'pm';
+	getTime().forEach((num, idx) => setTime(num, idx));
+}
 
 //시간값을 구해서 반환하는 함수
 function getTime() {
