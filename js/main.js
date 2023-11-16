@@ -2,7 +2,7 @@ const main = document.querySelector('main');
 const screen = document.querySelector('.screen');
 const em = screen.querySelector('em');
 const numbers = screen.querySelectorAll('span');
-
+const btns = document.querySelectorAll('nav span');
 /*
 setInterval(() => {
 	const now = new Date();
@@ -28,7 +28,7 @@ const data = [
 	{ cond: new Date().getHours() >= 21 || new Date().getHours() < 5, name: 'night' },
 ];
 
-setInterval(() => {
+let timer = setInterval(() => {
 	//data전역변수를 인수로 받아서 호출처리
 	changeTheme(data);
 	em.innerText = new Date().getHours() < 12 ? 'am' : 'pm';
@@ -37,6 +37,22 @@ setInterval(() => {
 	//setTime함수는 반복을 돌면서 시간,분,초에 한자리수 일때 앞에 0을 붙여주는 공통로직 반복실행
 	getTime().forEach((num, idx) => setTime(num, idx));
 }, 1000);
+
+btns.forEach((btn) => {
+	//각 버튼 클릭시
+	btn.addEventListener('click', (e) => {
+		//클릭한  버튼만 활성화
+		btn.forEach((btn) => btn.classList.remove('on'));
+		e.currentTarget.classList.add('on');
+
+		//기존 자동롤링기능끊어줌
+		clearInterval(timer);
+		//메인요소에 모든 클래스 제거
+		main.className = '';
+		//클릭한 버튼의 글자를 가져와서 소문자로 변경한다음 메인요소의 클래스명으로 지정
+		main.classList.add(e.currentTarget.innerText.toLowerCase()); //to UpperCase(); 대문자변경
+	});
+});
 
 //시간값을 구해서 반환하는 함수
 function getTime() {
